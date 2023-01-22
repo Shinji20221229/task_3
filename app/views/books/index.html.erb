@@ -1,2 +1,57 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<!--<3% @book.each do |book| %>-->
+<!--<div>-->
+<!--  <%#= image_tag book.get_image %>-->
+<!--  <p>投稿ユーザー画像：<%#= image_tag 'no_image.jpg' %></p>-->
+<!--  <p>ショップ名：<%#= book.title %></p>-->
+<!--  <p>説明：<%#= book.caption %></p>-->
+<!--  <p>ユーザーネーム：<%#= book.user.name %></p>-->
+<!--</div>-->
+<!--<%# end %>-->
+<main>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+      <div class="col-md-3">
+        <h2>User info</h2>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>name</td>
+                <td>introduction</td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="user編集"></a>
+        <h2>New book</h2>
+        <h4>Title</h4>
+          <%= f.text_field :title %>
+        <h4>Opinion</h4>
+          <%= f.text_area :caption %>
+        <%= f.submit 'Create Book' %>
+      </div>
+      <div class="col-md-8 offset-md-1">
+       <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Body</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @book.each do |book| %>
+              <tr>
+                <td><%= book.Title %></td>
+                <td><%= book.Opinion %></td>
+                <td><%= link_to "Show",book_path(book.id) %></td>
+                <td><%= link_to "Edit",edit_book_path(book.id) %></td>
+                <td>
+                <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
