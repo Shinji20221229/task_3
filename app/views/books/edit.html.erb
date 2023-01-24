@@ -1,3 +1,6 @@
+<div>
+  <%= flash[:notice] %>
+</div>
 <h1>Editing Book</h1>
 <%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
   <%= form_with model: @book do |f| %>
