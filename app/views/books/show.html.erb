@@ -1,7 +1,4 @@
-<main>
-  <div>
-    <%= flash[:notice] %>
-  </div>
+<p class="notice"></p>
   <div class="container px-5 px-sm-0">
   <div class="row">
   <%= render 'books/list', book: Book.new,user: @user %>
@@ -38,4 +35,4 @@
         </div>
       </div>
     </div>
-</main>
+
