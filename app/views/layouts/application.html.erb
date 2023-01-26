@@ -54,7 +54,7 @@
               </li>
               <li>
                 <%= link_to about_path, class:"nav-link text-light" do %>
-                <i class="fas fa-unlink"></i>
+                <i class="fas fa-link"></i>
                 About
                 <% end %>
               </li>
@@ -80,9 +80,6 @@
       <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
       <% end %>
-      <div>
-        <%= flash[:notice] %>
-      </div>
           <%= yield %>
         <footer>
         <div class="container mt-5">

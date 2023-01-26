@@ -1,6 +1,3 @@
-<div>
-  <%= flash[:notice] %>
-</div>
 <div class="container px-5 px-sm-0">
   <div class="row">
   <%= render 'books/list', book: @book,user: @user %>
@@ -17,10 +14,12 @@
               </thead>
               <tbody>
               <% @books.each do |book| %>
-                  <%= link_to book_path(book.id) do %>
-                  <% end %>
                   <tr>
-                    <td><%= image_tag @user.get_profile_image(100,100) %></td>
+                    <td>
+                    <%= link_to user_path(@user.id) do %>
+                    <%= image_tag book.user.get_profile_image(100,100) %>
+                    <% end %>
+                    </td>
                     <td>
                       <%=link_to book.title, book_path(book.id) %>
                     </td>
